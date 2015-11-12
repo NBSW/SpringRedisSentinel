@@ -18,9 +18,8 @@ package io.redis.sentinel.test;
 import javax.annotation.PreDestroy;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.boot.SpringApplication;
-import org.springframework.boot.autoconfigure.EnableAutoConfiguration;
 import org.springframework.context.ApplicationContext;
+import org.springframework.context.annotation.AnnotationConfigApplicationContext;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.data.redis.connection.RedisConnectionFactory;
@@ -34,8 +33,7 @@ import org.springframework.util.StopWatch;
  * @modify yaochong.chen
  */
 @Configuration
-@EnableAutoConfiguration
-public class RedisSentinelApplicationConfig {
+public class RedisSentinelApplication {
 
 	static final RedisSentinelConfiguration SENTINEL_CONFIG = new RedisSentinelConfiguration()
 			.master("mymaster") //
@@ -46,8 +44,9 @@ public class RedisSentinelApplicationConfig {
 	RedisConnectionFactory factory;
 
 	public static void main(String[] args) throws Exception {
-		ApplicationContext context = SpringApplication.run(
-				RedisSentinelApplicationConfig.class, args);
+
+		ApplicationContext context = new AnnotationConfigApplicationContext(
+				RedisSentinelApplicationConfig.class);
 
 		RedisConnectionFactory factory = context
 				.getBean(RedisConnectionFactory.class);

@@ -13,7 +13,7 @@
 	<packaging>jar</packaging>
 	<description>use spring-boot,spring-data,redis-client</description>
 
-	<name>test</name>
+	<name>SpringRedisSentinel</name>
 	<url>http://maven.apache.org</url>
 
 	<properties>
