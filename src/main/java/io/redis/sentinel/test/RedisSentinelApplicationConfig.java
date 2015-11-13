@@ -30,8 +30,7 @@ import org.springframework.data.redis.core.StringRedisTemplate;
 import org.springframework.util.StopWatch;
 
 /**
- * @author Christoph Strobl
- * @modify yaochong.chen
+ * yaochong.chen
  */
 @Configuration
 @EnableAutoConfiguration
